@@ -1,8 +1,8 @@
-let logDefaults = (a='Default Value', ...rest) => { 
-  console.log(a) 
-  if(rest.length > 0) logDefaults(rest)
-}
-logDefaults()
-logDefaults(undefined,'We','Are','Variadic','Args')
-logDefaults("Let's do some object destructuring")
+import Stack from './DataStructures/Stack'
 
+var a = new Stack()
+
+a.enqueue('hello')
+console.log(a.size)
+console.log(a.dequeue())
+console.log(a.size)
