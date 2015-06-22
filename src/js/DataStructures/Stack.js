@@ -4,10 +4,10 @@ class Stack{
   constructor(){
     STORAGE.set(this, [])
   }
-  enqueue(value){
+  push(value){
     STORAGE.get(this).push(value)
   }
-  dequeue(){
+  pop(){
     return STORAGE.get(this).pop()
   }
   get size(){

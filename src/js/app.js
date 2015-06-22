@@ -2,7 +2,7 @@ import Stack from './DataStructures/Stack'
 
 var a = new Stack()
 
-a.enqueue('hello')
+a.push('hello')
 console.log(a.size)
-console.log(a.dequeue())
+console.log(a.pop())
 console.log(a.size)
