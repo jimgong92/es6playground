@@ -36,6 +36,38 @@ class LinkedList{
     HEAD.set(this, currHead.next)
     return currHead.value
   }
+  contains (value) {
+    currNode = HEAD.get(this)
+    while (currNode !== null){
+      if (currNode.value === value) {
+        return currNode
+      }
+      currNode = currNode.next
+    }
+    return false
+  }
+  remove (node) {
+    if (node.prev === null && node.next === null){
+      return false
+    }
+    if (node.prev !== null){
+      node.prev.next = node.next
+    }
+    if (node.next !== null){
+      node.next.prev = node.prev
+    }
+    return true;
+  }
+  insertAfter (value, node) {
+    newNode = new Node(value, node, node.next)
+    node.next.prev = newNode
+    node.next = newNode
+  }
+  insertBefore (value, node){
+    newNode = new Node(value, node.prev, node)
+    node.prev.next = newNode
+    node.prev = newNode
+  }
   get size () { return SIZE.get(this)}
 }
 
