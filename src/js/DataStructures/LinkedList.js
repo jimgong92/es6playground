@@ -12,17 +12,29 @@ const TAIL = new WeakMap()
 
 class LinkedList{
   constructor(){
+    HEAD.set(this, null)
+    TAIL.set(this, null)
     SIZE.set(this, 0)
   }
   addToTail (value) {
-    if (HEAD.get(this) === undefined){}
     let currTail = TAIL.get(this)
-    currTail.next = new Node(value, currTail)
-    TAIL.set(this, currTail.next)
+    let newNode = new Node(value, currTail)
+    if (HEAD.get(this) === null){
+      HEAD.set(this, newNode)
+    }
+    else {
+      currTail.next = newNode
+    }
+    TAIL.set(this, newNode)
     SIZE.set(this, SIZE.get(this) + 1)
   }
-  removeHead (value) {
-    HEAD
+  removeHead () {
+    currHead = HEAD.get(this)
+    if (currHead === null) {
+      return null
+    }
+    HEAD.set(this, currHead.next)
+    return currHead.value
   }
   get size () { return SIZE.get(this)}
 }
