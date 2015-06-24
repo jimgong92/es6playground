@@ -29,15 +29,16 @@ class LinkedList{
     SIZE.set(this, SIZE.get(this) + 1)
   }
   removeHead () {
-    currHead = HEAD.get(this)
+    let currHead = HEAD.get(this)
     if (currHead === null) {
       return null
     }
     HEAD.set(this, currHead.next)
+    SIZE.set(this, SIZE.get(this) - 1)
     return currHead.value
   }
   contains (value) {
-    currNode = HEAD.get(this)
+    let currNode = HEAD.get(this)
     while (currNode !== null){
       if (currNode.value === value) {
         return currNode
@@ -46,16 +47,31 @@ class LinkedList{
     }
     return false
   }
-  remove (node) {
+  removeNode (node) {
     if (node.prev === null && node.next === null){
-      return false
+      if (HEAD.get(this) === node){
+        //ONLY NODE
+        HEAD.set(this, null)
+        TAIL.set(this, null)
+        return true
+      }
+      //node not in list
+      return false 
     }
     if (node.prev !== null){
       node.prev.next = node.next
     }
+    else {
+      HEAD.set(this, node.next)
+    }
     if (node.next !== null){
       node.next.prev = node.prev
     }
+    else {
+      TAIL.set(this, node.prev)
+    }
+    SIZE.set(this, SIZE.get(this) - 1)
+
     return true;
   }
   insertAfter (value, node) {
@@ -69,6 +85,8 @@ class LinkedList{
     node.prev = newNode
   }
   get size () { return SIZE.get(this)}
+  get head () { return HEAD.get(this)}
+  get tail () { return TAIL.get(this)}
 }
 
 export default LinkedList

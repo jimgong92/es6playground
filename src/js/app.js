@@ -1,10 +1,13 @@
-import Stack from './DataStructures/Stack'
 import LinkedList from './DataStructures/LinkedList'
-var stack = new Stack()
 
-stack.push('hello')
-console.log(stack.size)
-console.log(stack.pop())
-console.log(stack.size)
+let ll = new LinkedList()
+ll.addToTail(1)
+ll.addToTail(2)
+ll.addToTail(3)
+console.log(ll.size)
+console.log(ll.head)
+console.log(ll.tail)
+let captured = ll.contains(1)
+console.log(ll.removeNode(captured))
 
-var ll = new LinkedList()
+console.log(ll.contains(1))
