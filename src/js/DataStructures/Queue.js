@@ -15,7 +15,7 @@ class Queue{
     LAST.set(this, null)
     SIZE.set(this, 0)
   }
-  enqueue (value) {
+  enqueue(value){
     let newNode = new Node(value)
     let queueLen = SIZE.get(this)
     if (queueLen === 0){
@@ -27,7 +27,7 @@ class Queue{
     LAST.set(this, newNode)
     SIZE.set(this, queueLen + 1)
   }
-  dequeue () {
+  dequeue(){
     let queueLen = SIZE.get(this)
     if (queueLen === 0){
       return null
@@ -40,7 +40,7 @@ class Queue{
     SIZE.set(this, queueLen - 1)
     return first.value
   }
-  get size () { return SIZE.get(this) }
+  get size(){ return SIZE.get(this) }
 
 }
 

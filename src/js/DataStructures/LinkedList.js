@@ -16,7 +16,7 @@ class LinkedList{
     TAIL.set(this, null)
     SIZE.set(this, 0)
   }
-  addToTail (value) {
+  addToTail(value){
     let currTail = TAIL.get(this)
     let newNode = new Node(value, currTail)
     if (HEAD.get(this) === null){
@@ -28,7 +28,7 @@ class LinkedList{
     TAIL.set(this, newNode)
     SIZE.set(this, SIZE.get(this) + 1)
   }
-  removeHead () {
+  removeHead(){
     let currHead = HEAD.get(this)
     if (currHead === null) {
       return null
@@ -37,7 +37,7 @@ class LinkedList{
     SIZE.set(this, SIZE.get(this) - 1)
     return currHead.value
   }
-  contains (value) {
+  contains(value){
     let currNode = HEAD.get(this)
     while (currNode !== null){
       if (currNode.value === value) {
@@ -47,7 +47,7 @@ class LinkedList{
     }
     return false
   }
-  removeNode (node) {
+  removeNode(node){
     if (node.prev === null && node.next === null){
       if (HEAD.get(this) === node){
         //ONLY NODE
@@ -74,12 +74,12 @@ class LinkedList{
 
     return true;
   }
-  insertAfter (value, node) {
+  insertAfter(value, node){
     newNode = new Node(value, node, node.next)
     node.next.prev = newNode
     node.next = newNode
   }
-  insertBefore (value, node){
+  insertBefore(value, node){
     newNode = new Node(value, node.prev, node)
     node.prev.next = newNode
     node.prev = newNode
