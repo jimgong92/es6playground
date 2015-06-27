@@ -1,13 +1,12 @@
-import LinkedList from './DataStructures/LinkedList'
+import Queue from './DataStructures/Queue'
 
-let ll = new LinkedList()
-ll.addToTail(1)
-ll.addToTail(2)
-ll.addToTail(3)
-console.log(ll.size)
-console.log(ll.head)
-console.log(ll.tail)
-let captured = ll.contains(1)
-console.log(ll.removeNode(captured))
+let q = new Queue()
 
-console.log(ll.contains(1))
+for (let i = 0; i < 10; i++){
+  q.enqueue(i)
+}
+
+console.log(q.dequeue())
+console.log(q.dequeue())
+console.log(q.dequeue())
+console.log(q.dequeue())

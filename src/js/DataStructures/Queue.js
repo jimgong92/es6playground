@@ -22,9 +22,9 @@ class Queue{
       FIRST.set(this, newNode)
     }
     else {
-      TAIL.get(this).next = newNode
+      LAST.get(this).next = newNode
     }
-    TAIL.set(this, newNode)
+    LAST.set(this, newNode)
     SIZE.set(this, queueLen + 1)
   }
   dequeue () {
@@ -32,13 +32,13 @@ class Queue{
     if (queueLen === 0){
       return null
     }
-    let first = HEAD.get(this)
+    let first = FIRST.get(this)
     if (queueLen === 1){
-      TAIL.set(this, null)
+      LAST.set(this, null)
     }
-    HEAD.set(this, first.next)
+    FIRST.set(this, first.next)
     SIZE.set(this, queueLen - 1)
-    return first
+    return first.value
   }
   get size () { return SIZE.get(this) }
 
