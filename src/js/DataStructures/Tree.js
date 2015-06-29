@@ -1,21 +1,27 @@
-class Node{
-  constructor(value) {
-    this.value = value
+class Tree{
+  constructor(value){
+    this.value = value;
     this.children = []
   }
-  addChild(child){
-    this.children.push(child)
+  addChild(childNode){
+    this.children.push(childNode)
+    return childNode
   }
-  removeChild(child){
-    for (let i = 0; i < this.children.length; i++){
-      if (this.children[i] === child){
-        this.children.splice(i, 1)
-        return
+  removeChild(childNode){
+    let children = CHILDREN.get(this)
+    for (let i = 0; i < children.length; i++){
+      if (children[i] === childNode){
+        return children.splice(i, 1)
       }
+    }
+  }
+  depthFirstLog(callback){
+    for (var i = 0; i < this.children.length; i++){
+      let child = this.children[i]
+      callback(child)
+      this.depthFirstLog(child)
     }
   }
 }
 
-class Tree{
-  
-}
+export default Tree
