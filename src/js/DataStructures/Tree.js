@@ -11,10 +11,10 @@ class Tree{
       return childNodes;
     }
     this.children.push(childNodes)
-    return childNode
+    return childNodes
   }
   removeChild(childNode){
-    let children = CHILDREN.get(this)
+    let children = this.children
     for (let i = 0; i < children.length; i++){
       if (children[i] === childNode){
         return children.splice(i, 1)
