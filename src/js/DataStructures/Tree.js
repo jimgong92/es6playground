@@ -3,8 +3,14 @@ class Tree{
     this.value = value;
     this.children = []
   }
-  addChild(childNode){
-    this.children.push(childNode)
+  addChild(childNodes){
+    if (Array.isArray(childNodes)){
+      for (let i = 0; i < childNodes.length; i++){
+        this.children.push(childNodes[i])
+      }
+      return childNodes;
+    }
+    this.children.push(childNodes)
     return childNode
   }
   removeChild(childNode){
