@@ -1,5 +1,5 @@
 class Node{
-  constructor(){
+  constructor(value){
     this.value = value;
     this.edges = new WeakMap()
     this.neighbors = []
@@ -31,6 +31,23 @@ class Node{
       let ni = this.neighbors[i]
       if (this.edges.get(ni) === ni){
         callback(ni)
+      }
+    }
+  }
+}
+
+class Graph{
+  constructor(){
+    this.nodes = []
+  }
+  addNode(value, initNeighbors){
+    let newNode = Node(value)
+    this.nodes.push(newNode)
+  }
+  removeNode(node){
+    for(let i = 0; i < this.nodes.length; i++){
+      if (this.nodes[i] === node){
+        return this.nodes.splice(i, 1)
       }
     }
   }
